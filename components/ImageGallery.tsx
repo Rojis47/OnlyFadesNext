@@ -2,7 +2,16 @@
 
 import GalleryImageCard from "./GalleryImageCard";
 
-function ImageGallery({ showModal, setShowModal, barber }) {
+type ImageGalleryProps = {
+  showModal: boolean;
+  setShowModal: (show: boolean) => void;
+  barber: {
+    name: string;
+    pics: string[];
+  };
+};
+
+function ImageGallery({ showModal, setShowModal, barber }: ImageGalleryProps) {
   return (
     <div>
       {showModal ? (
@@ -19,7 +28,7 @@ function ImageGallery({ showModal, setShowModal, barber }) {
                   className="relative px-4 pb-4 overflow-auto text-left transition-all transform bg-[rgba(255,255,255,0.1)] rounded-lg scroll-bar shadow-xl backdrop-blur-lg bg-opacity-90 drop-shadow-2xl sm:my-8 sm:p-6 scrollbar"
                 >
                   <div className="sticky top-0 z-10 pt-4 text-white text-end">
-                    <button onClick={() => setShowModal(false)}>
+                    <button title="modal" onClick={() => setShowModal(false)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -46,7 +55,6 @@ function ImageGallery({ showModal, setShowModal, barber }) {
                           key={i}
                           image={image}
                           alt={`Image ${i + 1} for ${barber.name}`}
-                          index={i}
                         />
                       ))}
                     </ul>

@@ -1,4 +1,6 @@
-const GradientShadowButton = ({ children }) => {
+type GradientShadowButtonProps = { children: React.ReactNode };
+
+const GradientShadowButton = ({ children }: GradientShadowButtonProps) => {
   return (
     <div className="relative transition-transform duration-300 group w-fit active:scale-95">
       <button className="relative z-10 rounded-lg bg-gradient-to-br from-indigo-500 to-fuchsia-500 p-0.5 duration-300 group-hover:scale-110">
