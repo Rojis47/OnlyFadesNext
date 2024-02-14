@@ -1,7 +1,7 @@
 import { GeistSans } from "geist/font/sans";
 import NavBar from "@/components/NavBar";
 import "./globals.css";
-import { AnimatePresence } from "framer-motion";
+import AuthButton from "@/components/AuthButton";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -22,7 +22,10 @@ export default function RootLayout({
     <html lang="en" className={GeistSans.className}>
       <body className="bg-background text-foreground">
         <main className="flex flex-col items-center min-h-screen">
-          <NavBar />
+          <div className="flex items-center justify-between w-full p-3 text-sm">
+            <AuthButton />
+            <NavBar />
+          </div>
           {children}
         </main>
       </body>

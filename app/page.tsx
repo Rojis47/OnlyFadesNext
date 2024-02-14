@@ -6,9 +6,7 @@ function Home() {
   return (
     <>
       <Landing />
-      <div className=" w-screen bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
-        <Barbers />
-      </div>
+      <Barbers />
     </>
   );
 }

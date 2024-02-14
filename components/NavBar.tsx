@@ -16,7 +16,7 @@ function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <motion.header
-      className="absolute inset-x-0 z-50 top-5"
+      className="absolute inset-x-0 z-10 pointer-events-auto top-5"
       initial={{
         opacity: 0,
         y: 50,
