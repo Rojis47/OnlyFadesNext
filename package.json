@@ -6,12 +6,17 @@
     "start": "next start"
   },
   "dependencies": {
+    "react-router-hash-link": "^2.4.3",
     "@headlessui/react": "^2.0.0-alpha.4",
+    "@heroicons/react": "^2.0.18",
+    "framer-motion": "^10.15.0",
     "@prisma/client": "^5.9.1",
     "@supabase/ssr": "latest",
+    "blurhash": "^2.0.5",
     "@supabase/supabase-js": "latest",
     "autoprefixer": "10.4.17",
     "clsx": "^2.1.0",
+    "react-blurhash": "^0.3.0",
     "geist": "^1.2.1",
     "next": "latest",
     "postcss": "8.4.33",
