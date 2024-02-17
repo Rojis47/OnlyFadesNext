@@ -7,6 +7,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 
 const navigation = [
+  { name: "Home", href: "/" },
   { name: "Our Barbers", href: "#Barbers" },
   { name: "Contact Us", href: "#Contact" },
   { name: "Faq", href: "#faq" },

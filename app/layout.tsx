@@ -2,6 +2,7 @@ import { GeistSans } from "geist/font/sans";
 import NavBar from "@/components/NavBar";
 import "./globals.css";
 import AuthButton from "@/components/AuthButton";
+import { Toaster } from "react-hot-toast";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -25,6 +26,7 @@ export default function RootLayout({
           <div className="flex items-center justify-between w-full p-3 text-sm">
             <AuthButton />
             <NavBar />
+            <Toaster position="top-right" />
           </div>
           {children}
         </main>
