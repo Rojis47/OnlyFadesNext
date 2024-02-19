@@ -1,22 +1,23 @@
 import { PrismaClient } from "@prisma/client";
+import { createClient } from "@/utils/supabase/server";
 const prisma = new PrismaClient();
+const supabase = createClient();
 
-// import { TUser } from "./types";
+export const getCurrentUser = async (user: any) => {
+  try {
+    const prismaUser = await prisma.user.findUnique({
+      where: {
+        email: user?.email,
+      },
+    });
 
-// export async function createUser({
-//   first_name,
-//   last_name,
-//   email,
-//   role,
-// }: TUser) {
-//   const user = await prisma.user.create({
-//     data: {
-//       first_name,
-//       last_name,
-//       email,
-//       role,
-//     },
-//   });
-
-//   return user;
-// }
+    if (user) {
+      return prismaUser;
+    } else {
+      throw new Error("User not found");
+    }
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    throw error;
+  }
+};
