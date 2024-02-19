@@ -26,7 +26,7 @@ export default function RootLayout({
           <div className="flex items-center justify-between w-full p-3 text-sm">
             <AuthButton />
             <NavBar />
-            <Toaster position="top-right" />
+            <Toaster />
           </div>
           {children}
         </main>

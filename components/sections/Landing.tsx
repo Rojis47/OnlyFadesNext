@@ -14,9 +14,7 @@ function Landing() {
         className="myBackgroundImage isolate -z-10"
         alt="Background Image"
         src={bgImage}
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
+        fill
       />
 
       <div className="absolute inset-0 object-cover w-full h-full bg-black bg-opacity-50 -z-10"></div>

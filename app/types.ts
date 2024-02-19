@@ -1,32 +1,40 @@
 import * as z from 'zod';
 
-// model User {
-//     id         String   @id @default(uuid())
-//     email      String   @unique
-//     first_name String
-//     last_name  String
-//     role       String   @default("user")
-//   }
+const invalid_type_error = 'Invalid type provided for this field';
+const required_error = 'This field cannot be blank';
 
 export const UserSchema = z.object({
-  email: z.string().email({ message: "Invalid email"}),
-  password: z.string().min(8, {
-    message: "Password must be at least 8 characters long"
-  }).optional(),
-  first_name: z.string().min(1, { 
-    message: "First name must be at least 1 character long"
-   }).max(20, { 
-    message: "First name must be at most 20 characters long"
-    }),
-  last_name: z.string().min(1, { 
-    message: "Last name must be at least 1 character long"
-   }).max(20, { 
-    message: "Last name must be at most 20 characters long"
-   }),
+  email:  z
+          .string({ invalid_type_error, required_error })
+          .email('Please provide a valid email')
+          .min(1, 'Value is too short'),
+  password: z
+          .string()
+          .min(6, {message: "Password must be at least 6 characters long"})
+          .optional(),
+  first_name: z
+          .string({ invalid_type_error, required_error })
+          .min(1, 'Value is too short'),
+  last_name: z
+          .string({ invalid_type_error, required_error })
+          .min(1, 'Value is too short'),
   role: z.string().optional(),
 });
 
 export type TUser = z.infer<typeof UserSchema>;
+
+
+export const UserLogInSchema = z.object({
+        email:  z
+                .string({ invalid_type_error, required_error })
+                .email('Please provide a valid email')
+                .min(1, 'Value is too short'),
+        password: z
+                .string()
+                .min(6, {message: "Password must be at least 6 characters long"})
+                .optional(),
+});
+export type TUserLogIn = z.infer<typeof UserLogInSchema>;
 
 
 

@@ -1,10 +1,11 @@
 "use client";
 
-import { UserSchema } from "../types";
+import React from "react";
+import Link from "next/link";
+import { UserLogInSchema, UserSchema } from "../types";
 import { Input } from "../../components/TW/input";
 import toast from "react-hot-toast";
-import { createUser } from "./add-user-server-actions";
-import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
+import { LogInUser } from "./log-in-server-actions";
 
 const toastStlye = {
   style: {
@@ -16,19 +17,12 @@ const toastStlye = {
   duration: 6000,
 };
 
-export default function SignUpForm() {
+export default function LogInForm() {
   const clientAction = async (formData: FormData) => {
-    const first_name = formData.get("first_name") as string;
-    const last_name = formData.get("last_name") as string | undefined;
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
-    const result = UserSchema.safeParse({
-      email,
-      password,
-      first_name,
-      last_name,
-      role: "user",
-    });
+
+    const result = UserLogInSchema.safeParse({ email, password });
 
     if (!result.success) {
       const errorMessages = result.error.issues.map((issue) => {
@@ -36,50 +30,29 @@ export default function SignUpForm() {
       });
 
       const formattedErrorMessage = errorMessages.join("\n");
-      toast.error(formattedErrorMessage, toastStlye);
+      toast.error(formattedErrorMessage);
       return;
     }
 
-    const response = await createUser(result.data);
+    const response = await LogInUser(result.data);
 
     if (response?.error) {
       toast.error(response.error, toastStlye);
       return;
     }
-
-    toast.success(
-      "User created successfully. Please confirm email to continue.",
-      toastStlye
-    );
   };
   return (
-    <div className="z-10 flex flex-col justify-center flex-1 w-full gap-2 px-8 sm:max-w-md">
+    <>
       <form
         className="flex flex-col justify-center flex-1 w-full gap-2 animate-in text-foreground"
         action={clientAction}
       >
         {" "}
-        <label className="text-md" htmlFor="first_name">
-          First Name
-        </label>
-        <Input
-          className="py-1 mb-6 rounded-md bg-inherit"
-          name="first_name"
-          placeholder="Marcos"
-        />
-        <label className="text-md" htmlFor="last_name">
-          Last Name
-        </label>
-        <Input
-          className="py-1 mb-6 rounded-md bg-inherit"
-          name="last_name"
-          placeholder="Jaimes"
-        />
         <label className="text-md" htmlFor="email">
           Email
         </label>
         <Input
-          className="py-1 mb-6 rounded-md bg-inherit"
+          className="mb-6 rounded-md bg-inherit"
           name="email"
           placeholder="you@example.com"
         />
@@ -87,15 +60,24 @@ export default function SignUpForm() {
           Password
         </label>
         <Input
-          className="py-1 mb-6 rounded-md bg-inherit"
+          className="mb-6 rounded-md bg-inherit"
           type="password"
           name="password"
           placeholder="••••••••"
         />
         <button className="px-4 py-2 mb-2 bg-blue-700 rounded-md text-foreground">
-          Sign Up
+          Sign In
         </button>
+        <p className="text-sm leading-6 text-center text-gray-500">
+          Don't have an account?{" "}
+          <Link
+            href="/signUp"
+            className="font-semibold text-indigo-600 hover:text-indigo-500"
+          >
+            Sign Up Here
+          </Link>
+        </p>
       </form>
-    </div>
+    </>
   );
 }
