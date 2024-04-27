@@ -21,7 +21,7 @@ export const LogInUser = async (userLog: TUserLogIn) => {
   try {
     const { error } = await supabase.auth.signInWithPassword({
       email,
-      password,
+      password: password || "",
     });
 
     if (error) {
