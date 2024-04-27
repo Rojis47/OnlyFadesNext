@@ -71,7 +71,6 @@ function Landing() {
             transition={{ duration: 1.4, delay: 1.7 }}
           >
             <Link
-              onClick={() => setOpen(true)}
               href="#Barbers"
               className="grid w-48 px-4 py-2 font-semibold leading-6 text-black transition-all duration-200 ease-in bg-white border border-white rounded-full text-xlg place-content-center hover:bg-black hover:border-black hover:text-white"
             >
