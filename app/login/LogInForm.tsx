@@ -30,7 +30,7 @@ export default function LogInForm() {
       });
 
       const formattedErrorMessage = errorMessages.join("\n");
-      toast.error(formattedErrorMessage);
+      toast.error(formattedErrorMessage, toastStlye);
       return;
     }
 

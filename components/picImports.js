@@ -192,6 +192,8 @@ const skoobaPics = [
 const barbers = [
   {
     name: 'Marcos',
+    location: "only-fades-round-rock",
+    squireId: "marcos-morales-1",
     role: 'Barber',
     imageUrl: marcosLogo,
     bookUrl:

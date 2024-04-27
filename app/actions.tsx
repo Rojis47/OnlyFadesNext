@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { createClient } from "@/utils/supabase/server";
+import { cookies } from "next/headers";
 const prisma = new PrismaClient();
 const supabase = createClient();
 

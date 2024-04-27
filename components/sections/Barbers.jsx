@@ -1,13 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "@/css/index.css";
 import ImageGallery from "../ImageGallery";
 import ShuffleCards from "../ShuffleCards";
+import SquireBookModal from "../SquireBookModal";
+import barbers from "../picImports";
 
 export default function Barbers() {
-  const [selectedBarber, setSelectedBarber] = useState(null);
+  const [selectedBarber, setSelectedBarber] = useState(barbers[0]);
   const [showModal, setShowModal] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <div id="Barbers" className="py-24 ">
@@ -22,13 +25,12 @@ export default function Barbers() {
             cuts and trims for our clients.
           </p>
         </div>
-        <ul
-          role="list"
-          className="grid max-w-2xl grid-cols-1 mx-auto mt-20 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4"
-        >
+        <ul role="list" className="">
           <ShuffleCards
+            // setSelectedBarberService={setSelectedBarberService}
             setSelectedBarber={setSelectedBarber}
             setShowModal={setShowModal}
+            setOpen={setOpen}
           />
           {showModal && (
             <ImageGallery
@@ -37,6 +39,11 @@ export default function Barbers() {
               barber={selectedBarber}
             />
           )}
+          <SquireBookModal
+            showModal={open}
+            setShowModal={setOpen}
+            barber={selectedBarber}
+          />
         </ul>
       </div>
     </div>

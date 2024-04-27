@@ -3,6 +3,7 @@ import NavBar from "@/components/NavBar";
 import "./globals.css";
 import AuthButton from "@/components/AuthButton";
 import { Toaster } from "react-hot-toast";
+import SquireWidget from "@/components/SquireWidget";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -24,8 +25,9 @@ export default function RootLayout({
       <body className="bg-background text-foreground">
         <main className="flex flex-col items-center min-h-screen">
           <div className="flex items-center justify-between w-full p-3 text-sm">
-            <AuthButton />
+            {/* <AuthButton /> */}
             <NavBar />
+            {/* <SquireWidget /> */}
             <Toaster />
           </div>
           {children}
