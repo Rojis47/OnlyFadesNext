@@ -27,7 +27,6 @@ export default function Barbers() {
         </div>
         <ul role="list" className="">
           <ShuffleCards
-            // setSelectedBarberService={setSelectedBarberService}
             setSelectedBarber={setSelectedBarber}
             setShowModal={setShowModal}
             setOpen={setOpen}
