@@ -35,7 +35,7 @@ export const createUser = async (newUser: TUser) => {
 
     const { error } = await supabase.auth.signUp({
       email,
-      password,
+      password: password || "",
       options: {
         emailRedirectTo: `${origin}/auth/callback`,
       },
