@@ -16,7 +16,12 @@ function Landing() {
         className="myBackgroundImage isolate -z-10"
         alt="Background Image"
         src={bgImage}
+        quality={100}
         fill
+        sizes="100vw"
+        style={{
+          objectFit: "cover",
+        }}
       />
 
       <div className="absolute inset-0 object-cover w-full h-full bg-black bg-opacity-50 -z-10"></div>

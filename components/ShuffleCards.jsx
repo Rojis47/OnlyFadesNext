@@ -5,7 +5,12 @@ import { CalendarIcon } from "./icons";
 import GradientShadowButton from "@/components/GradientShadowButton";
 import Image from "next/image";
 
-const ShuffleCards = ({ setShowModal, setSelectedBarber, setOpen }) => {
+const ShuffleCards = ({
+  setShowModal,
+  setSelectedBarber,
+  setOpen,
+  setIsLoading,
+}) => {
   return (
     <>
       <div className="grid max-w-2xl grid-cols-1 mx-auto mt-20 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4">
@@ -33,10 +38,10 @@ const ShuffleCards = ({ setShowModal, setSelectedBarber, setOpen }) => {
               <GradientShadowButton>
                 <div
                   onClick={() => {
+                    setIsLoading(true);
                     setSelectedBarber(barber);
                     setOpen(true);
                   }}
-                  // href={barber.bookUrl}
                   className="z-10 flex items-center justify-center w-full gap-3 py-2 mx-auto "
                   smooth="true"
                 >
