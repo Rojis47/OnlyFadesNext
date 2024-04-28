@@ -1,27 +1,27 @@
-"use Client";
-
-import { useEffect } from "react";
-import GalleryImageCard from "./GalleryImageCard";
 import { TBarber, BarberSchema } from "../app/types";
 
-type ImageGalleryProps = {
+type SquireBookModalProps = {
   showModal: boolean;
   setShowModal: (show: boolean) => void;
   barber: TBarber;
+  isLoading: boolean;
+  setIsLoading: (loading: boolean) => void;
 };
 
-function ImageGallery({ showModal, setShowModal, barber }: ImageGalleryProps) {
+function SquireBookModal({
+  showModal,
+  setShowModal,
+  barber,
+  isLoading,
+  setIsLoading,
+}: SquireBookModalProps) {
   const result = BarberSchema.parse(barber);
-  console.log(result);
 
   return (
     <div>
       {showModal ? (
         <div className={`relative z-10 block top-0`}>
-          <div>
-            <div className="fixed inset-0 transition-opacity bg-black bg-opacity-75"></div>
-          </div>
-
+          <div className="fixed inset-0 transition-opacity bg-black bg-opacity-75"></div>
           <div className="fixed inset-0 overflow-y-auto lg:max-w-96 lg:m-auto">
             <div className="sticky top-0 pt-4 text-white text-end">
               <button
@@ -45,6 +45,14 @@ function ImageGallery({ showModal, setShowModal, barber }: ImageGalleryProps) {
                 </svg>
               </button>
             </div>
+            {isLoading && (
+              <div className="absolute translate-y-1/2 right-1/2 bottom-1/2 ">
+                <div
+                  className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                  role="status"
+                ></div>
+              </div>
+            )}
             <iframe
               className="w-full rounded-xl h-4/5 lg:h-5/6 lg:max-w-96 lg:m-auto"
               src={`https://getsquire.com/booking/book/${
@@ -53,6 +61,7 @@ function ImageGallery({ showModal, setShowModal, barber }: ImageGalleryProps) {
                 barber.squireId
               }/services?platform=widget`}
               title="External Content"
+              onLoad={() => setIsLoading(false)}
             />
           </div>
         </div>
@@ -60,6 +69,5 @@ function ImageGallery({ showModal, setShowModal, barber }: ImageGalleryProps) {
     </div>
   );
 }
-("https://getsquire.com/booking/book/only-fades-round-rock/barber/marcos-morales-1/services?platform=widget");
 
-export default ImageGallery;
+export default SquireBookModal;

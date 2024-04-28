@@ -11,6 +11,7 @@ export default function Barbers() {
   const [selectedBarber, setSelectedBarber] = useState(barbers[0]);
   const [showModal, setShowModal] = useState(false);
   const [open, setOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div id="Barbers" className="py-24 ">
@@ -27,6 +28,7 @@ export default function Barbers() {
         </div>
         <ul role="list" className="">
           <ShuffleCards
+            setIsLoading={setIsLoading}
             setSelectedBarber={setSelectedBarber}
             setShowModal={setShowModal}
             setOpen={setOpen}
@@ -39,6 +41,8 @@ export default function Barbers() {
             />
           )}
           <SquireBookModal
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
             showModal={open}
             setShowModal={setOpen}
             barber={selectedBarber}
