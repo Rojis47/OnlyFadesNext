@@ -1,14 +1,12 @@
 "use Client";
 
+import { TBarber } from "@/app/types";
 import GalleryImageCard from "./GalleryImageCard";
 
 type ImageGalleryProps = {
   showModal: boolean;
   setShowModal: (show: boolean) => void;
-  barber: {
-    name: string;
-    pics: string[];
-  };
+  barber: TBarber;
 };
 
 function ImageGallery({ showModal, setShowModal, barber }: ImageGalleryProps) {

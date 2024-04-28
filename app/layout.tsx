@@ -3,7 +3,7 @@ import NavBar from "@/components/NavBar";
 import "./globals.css";
 import AuthButton from "@/components/AuthButton";
 import { Toaster } from "react-hot-toast";
-import SquireWidget from "@/components/SquireWidget";
+import { NextUIProvider } from "@nextui-org/react";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -23,15 +23,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.className}>
       <body className="bg-background text-foreground">
-        <main className="flex flex-col items-center min-h-screen">
-          <div className="flex items-center justify-between w-full p-3 text-sm">
-            {/* <AuthButton /> */}
-            <NavBar />
-            {/* <SquireWidget /> */}
-            <Toaster />
-          </div>
-          {children}
-        </main>
+        <NextUIProvider>
+          <main className="flex flex-col items-center min-h-screen">
+            <div className="flex items-center justify-between w-full p-3 text-sm">
+              {/* <AuthButton /> */}
+              <NavBar />
+              {/* <SquireWidget /> */}
+              <Toaster />
+            </div>
+            {children}
+          </main>
+        </NextUIProvider>
       </body>
     </html>
   );

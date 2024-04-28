@@ -39,18 +39,22 @@ export const UserLogInSchema = z.object({
 });
 export type TUserLogIn = z.infer<typeof UserLogInSchema>;
 
-export const staticImageSchema =   z.object({
+export const staticImageSchema = z.object({
   src: z.string(),
   height: z.number(),
   width: z.number(),
-  blurDataURL:z.string(),
-  blurWidth: z.number(),
-  blurHeight: z.number()
+  blurDataURL:z.string().optional(),
+  blurWidth: z.number().optional(),
+  blurHeight: z.number().optional()
 })
+
+export type TStaticImage = z.infer<typeof staticImageSchema>;
+
+
 export const BarberSchema = z.object({
   name: z.string(),
-  location: z.string(),  
-  squireId: z.string(),  
+  location: z.string().optional(),  
+  squireId: z.string().optional(),  
   role: z.string(),
   imageUrl: staticImageSchema,  
   bookUrl: z.string(),

@@ -1,16 +1,25 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import barbers from "../components/picImports";
 import { CalendarIcon } from "./icons";
 import GradientShadowButton from "@/components/GradientShadowButton";
 import Image from "next/image";
+import { TBarber } from "@/app/types";
+
+type ShuffleCardsProps = {
+  setShowModal: (show: boolean) => void;
+  setSelectedBarber: any;
+  setOpen: (open: boolean) => void;
+  setIsLoading: (loading: boolean) => void;
+  barbers: TBarber[];
+};
 
 const ShuffleCards = ({
   setShowModal,
   setSelectedBarber,
   setOpen,
   setIsLoading,
-}) => {
+  barbers,
+}: ShuffleCardsProps) => {
   return (
     <>
       <div className="grid max-w-2xl grid-cols-1 mx-auto mt-20 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4">
@@ -43,7 +52,7 @@ const ShuffleCards = ({
                     setOpen(true);
                   }}
                   className="z-10 flex items-center justify-center w-full gap-3 py-2 mx-auto "
-                  smooth="true"
+                  // smooth="true"
                 >
                   Book
                   <svg

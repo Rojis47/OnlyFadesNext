@@ -1,7 +1,8 @@
 import Image from "next/image";
+import { TStaticImage } from "@/app/types";
 
 // create props for image and alt
-type GalleryImageCardProps = { image: string; alt: string };
+type GalleryImageCardProps = { image: TStaticImage; alt: string };
 
 const GalleryImageCard = ({ image, alt }: GalleryImageCardProps) => {
   return (

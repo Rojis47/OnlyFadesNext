@@ -1,4 +1,5 @@
 import { TBarber, BarberSchema } from "../app/types";
+import { Spinner } from "@nextui-org/react";
 
 type SquireBookModalProps = {
   showModal: boolean;
@@ -46,11 +47,8 @@ function SquireBookModal({
               </button>
             </div>
             {isLoading && (
-              <div className="absolute translate-y-1/2 right-1/2 bottom-1/2 ">
-                <div
-                  className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                  role="status"
-                ></div>
+              <div className="absolute z-0 translate-y-1/2 right-1/2 bottom-1/2 ">
+                <Spinner className="z-0" />
               </div>
             )}
             <iframe
