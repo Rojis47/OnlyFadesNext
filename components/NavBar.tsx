@@ -4,30 +4,20 @@ import { useState } from "react";
 import Link from "next/link";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Our Barbers", href: "#Barbers" },
+  { name: "Our Barbers", href: "/bookabarber" },
   { name: "Contact Us", href: "#Contact" },
   { name: "Faq", href: "#faq" },
 ];
 
 function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
   return (
-    <motion.header
-      className="absolute inset-x-0 z-10 pointer-events-auto top-5"
-      initial={{
-        opacity: 0,
-        y: 50,
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        transition: { duration: 1, delay: 0 },
-      }}
-    >
+    <header className="absolute inset-x-0 z-10 pointer-events-auto top-5">
       <nav
         className="flex items-center justify-end mr-4 lg:px-8 lg:justify-center lg:mr-0"
         aria-label="Global"
@@ -45,7 +35,9 @@ function NavBar() {
         <div className="hidden mt-2 font-sans lg:flex lg:gap-x-12">
           {navigation.map((item, i) => (
             <Link
-              className="font-sans leading-6 text-white duration-300 ease-in-out text-xlg hover:text-blue-500"
+              className={`link font-sans leading-6 text-white duration-300 ease-in-out text-xlg hover:text-blue-500 ${
+                pathname === `${item.href}` ? "text-blue-500" : ""
+              }`}
               key={i}
               // smooth="true"
               href={item.href}
@@ -66,7 +58,6 @@ function NavBar() {
           <div className="flex items-center justify-between">
             <div className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              {/* <img className="w-auto h-10" src={logo} alt="" /> */}
             </div>
             <button
               type="button"
@@ -95,7 +86,7 @@ function NavBar() {
           </div>
         </Dialog.Panel>
       </Dialog>
-    </motion.header>
+    </header>
   );
 }
 

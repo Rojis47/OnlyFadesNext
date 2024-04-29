@@ -4,6 +4,7 @@ import "./globals.css";
 import AuthButton from "@/components/AuthButton";
 import { Toaster } from "react-hot-toast";
 import { NextUIProvider } from "@nextui-org/react";
+import "@/css/index.css";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`

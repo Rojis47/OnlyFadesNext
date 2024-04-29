@@ -1,11 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import bgImage from "@/app/assets/images/else/bgimg.jpg";
 import Link from "next/link";
-import SquireBookModal from "../SquireBookModal";
-
 import logo from "@/app/assets/logo/OnlyFades.png";
 import { motion } from "framer-motion";
 
@@ -23,9 +20,7 @@ function Landing() {
           objectFit: "cover",
         }}
       />
-
       <div className="absolute inset-0 object-cover w-full h-full bg-black bg-opacity-50 -z-10"></div>
-
       {
         <div
           className="absolute inset-0 -z-10 bg-gradient-to-r from-black via-transparent to-black"
@@ -35,7 +30,6 @@ function Landing() {
           }}
         ></div>
       }
-
       <motion.div
         className="max-w-2xl pt-32 mx-auto sm:py-48 lg:py-56"
         initial={{
@@ -49,9 +43,9 @@ function Landing() {
         }}
       >
         <div className="text-center ">
-          <Link href="#" className="flex items-center justify-center">
+          <div className="flex items-center justify-center">
             <Image width={400} height={400} src={logo} alt="" />
-          </Link>
+          </div>
           <motion.h1
             className="font-serif text-4xl font-semibold tracking-tight text-white sm:text-6xl"
             initial={{ opacity: 0, y: 25 }}
@@ -76,7 +70,7 @@ function Landing() {
             transition={{ duration: 1.4, delay: 1.7 }}
           >
             <Link
-              href="#Barbers"
+              href="/bookabarber"
               className="grid w-48 px-4 py-2 font-semibold leading-6 text-black transition-all duration-200 ease-in bg-white border border-white rounded-full text-xlg place-content-center hover:bg-black hover:border-black hover:text-white"
             >
               Book Now

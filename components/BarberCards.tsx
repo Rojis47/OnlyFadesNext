@@ -14,7 +14,7 @@ export default function BarberCards({}: Props) {
   const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <ul role="list" className="">
+    <div className="">
       <ShuffleCards
         barbers={barbers}
         setIsLoading={setIsLoading}
@@ -36,6 +36,6 @@ export default function BarberCards({}: Props) {
         setShowModal={setOpen}
         barber={selectedBarber}
       />
-    </ul>
+    </div>
   );
 }
