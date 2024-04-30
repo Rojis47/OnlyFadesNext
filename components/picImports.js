@@ -192,8 +192,8 @@ const skoobaPics = [
 const barbers = [
   {
     name: 'Marcos',
-    location: "only-fades-round-rock",
-    squireId: "marcos-morales-1",
+    location: "onlyfades-downtown-use-round-rock",
+    squireId: "javier-121",
     role: 'Barber',
     imageUrl: marcosLogo,
     bookUrl:
@@ -203,6 +203,7 @@ const barbers = [
   },
   {
     name: 'SkoobaBlendz',
+    location: 'only-fades-round-rock',
     role: 'Barber',
     imageUrl: skoobaLogo,
     bookUrl:
@@ -212,6 +213,7 @@ const barbers = [
   },
   {
     name: 'Manny',
+    location: 'only-fades-round-rock',
     role: 'Barber',
     imageUrl: mannyLogo,
     bookUrl:
@@ -221,6 +223,7 @@ const barbers = [
   },
   {
     name: 'Ruby',
+    location: 'only-fades-round-rock',
     role: 'Barber',
     imageUrl: rubyLogo,
     bookUrl:
@@ -230,6 +233,7 @@ const barbers = [
   },
   {
     name: 'Jona The Barber',
+    location: 'only-fades-round-rock',
     role: 'Barber',
     imageUrl: jonathanLogo,
     bookUrl:
@@ -239,6 +243,7 @@ const barbers = [
   },
   {
     name: 'RubenCutz',
+    location: 'only-fades-round-rock',
     role: 'Barber',
     imageUrl: rubenLogo,
     bookUrl:
@@ -248,6 +253,7 @@ const barbers = [
   },
   {
     name: 'Mehdi Da Barber',
+    location: 'only-fades-round-rock',
     role: 'Barber',
     imageUrl: mehdiLogo,
     bookUrl:
@@ -257,6 +263,7 @@ const barbers = [
   },
   {
     name: 'Zayded Blendz',
+    location: "onlyfades-downtown-use-round-rock",
     role: 'Barber',
     imageUrl: francoLogo,
     bookUrl:
@@ -266,6 +273,7 @@ const barbers = [
   },
   {
     name: 'Zay',
+    location: "onlyfades-downtown-use-round-rock",
     role: 'Barber',
     imageUrl: zayLogo,
     bookUrl:
@@ -275,6 +283,7 @@ const barbers = [
   },
   {
     name: 'Devin',
+    location: "onlyfades-downtown-use-round-rock",
     role: 'Barber',
     imageUrl: devinLogo,
     bookUrl:
@@ -284,6 +293,7 @@ const barbers = [
   },
   {
     name: 'Angel',
+    location: "onlyfades-downtown-use-round-rock",
     role: 'Barber',
     imageUrl: angelLogo,
     bookUrl:

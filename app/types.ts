@@ -64,3 +64,10 @@ export const BarberSchema = z.object({
 
 
 export type TBarber = z.infer<typeof BarberSchema>;
+
+
+export type TTab = {
+  name: string;
+  id: string;
+  current: boolean;
+};

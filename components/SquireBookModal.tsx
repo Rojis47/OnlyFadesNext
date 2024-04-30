@@ -21,7 +21,7 @@ function SquireBookModal({
   return (
     <div>
       {showModal ? (
-        <div className={`relative z-10 block top-0`}>
+        <div className={`relative z-30 block top-0`}>
           <div className="fixed inset-0 transition-opacity bg-black bg-opacity-75"></div>
           <div className="fixed inset-0 overflow-y-auto lg:max-w-96 lg:m-auto">
             <div className="sticky top-0 pt-4 text-white text-end">

@@ -16,8 +16,9 @@ const navigation = [
 function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+
   return (
-    <header className="absolute inset-x-0 z-10 pointer-events-auto top-5">
+    <header className="absolute inset-x-0 z-20 pointer-events-auto top-5">
       <nav
         className="flex items-center justify-end mr-4 lg:px-8 lg:justify-center lg:mr-0"
         aria-label="Global"
@@ -39,7 +40,6 @@ function NavBar() {
                 pathname === `${item.href}` ? "text-blue-500" : ""
               }`}
               key={i}
-              // smooth="true"
               href={item.href}
             >
               {item.name}
