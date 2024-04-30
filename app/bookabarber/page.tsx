@@ -7,20 +7,17 @@ import { TTab } from "@/app/types";
 import { TBarber } from "@/app/types";
 import barbers from "@/components/picImports";
 
+// view location details then let them chose location based on well location => set sate based on location the pick
+
 const initialTabs: TTab[] = [
-  { name: "All", id: "ALL", current: false },
+  { name: "All", id: "ALL", current: true },
   { name: "North Round Rock", id: "only-fades-round-rock", current: false },
   {
     name: "DownTown Round Rock",
     id: "onlyfades-downtown-use-round-rock",
-    current: true,
+    current: false,
   },
 ];
-//bring state of active tab out here
-//import barbers here
-//pass barebrs to cards
-
-//make a barber filter based on location to match active tab
 
 export default function page() {
   const [tabs, setTabs] = useState<TTab[]>(initialTabs);
