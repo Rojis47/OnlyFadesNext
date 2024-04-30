@@ -1,5 +1,6 @@
 "use client";
 import { TTab } from "@/app/types";
+import { Select, SelectSection, SelectItem } from "@nextui-org/react";
 
 type HeaderProps = {
   tabs: TTab[];
@@ -57,22 +58,21 @@ export default function Header({ tabs, setTabs }: HeaderProps) {
           </nav>
         </div>
         <div className="sm:hidden">
-          <label htmlFor="current-tab" className="sr-only">
-            Select a tab
-          </label>
-          <select
+          <Select
             id="current-tab"
             name="current-tab"
-            className="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset text-black ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            label="Active Location"
+            placeholder="Select a Location"
+            className="max-w-xs text-black"
             onChange={(e) => handleTabClick(e.target.value)}
             value={tabs.find((tab) => tab.current)?.id}
           >
             {tabs.map((tab) => (
-              <option key={tab.id} value={tab.id}>
+              <SelectItem key={tab.id} className="text-black" value={tab.id}>
                 {tab.name}
-              </option>
+              </SelectItem>
             ))}
-          </select>
+          </Select>
         </div>
       </div>
     </div>

@@ -5,7 +5,6 @@ import AuthButton from "@/components/AuthButton";
 import { Toaster } from "react-hot-toast";
 import { NextUIProvider } from "@nextui-org/react";
 import "@/css/index.css";
-import squireWidget from "@/components/SquireWidget";
 import SquireWidget from "@/components/SquireWidget";
 
 const defaultUrl = process.env.VERCEL_URL

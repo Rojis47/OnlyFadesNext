@@ -36,9 +36,9 @@ function SquireBookModal({
           <div className="fixed inset-0 transition-opacity backdrop-blur-md bg-opacity-10" />
         </Transition.Child>
 
-        <div className="fixed inset-0 overflow-hidden">
+        <div className="fixed inset-0 overflow-hidden rounded-md">
           <div className="absolute inset-0 overflow-hidden">
-            <div className="fixed inset-y-0 right-0 flex max-w-full pl-10 pointer-events-none">
+            <div className="fixed inset-y-0 right-0 flex max-w-full pointer-events-none">
               <Transition.Child
                 as={Fragment}
                 enter="transform transition ease-in-out duration-500 sm:duration-700"
@@ -50,12 +50,12 @@ function SquireBookModal({
               >
                 <Dialog.Panel className="w-screen max-w-md pointer-events-auto">
                   <div className="flex flex-col h-full overflow-y-scroll bg-white shadow-xl">
-                    <div className="flex-1 px-4 py-6 overflow-y-auto sm:px-6">
+                    <div className="flex-1 py-6 overflow-y-auto rounded-md sm:px-6">
                       <div className="flex items-start justify-between">
                         <div className="flex items-center ml-3 h-7">
                           <button
                             type="button"
-                            className="relative p-2 -m-2 text-gray-400 hover:text-gray-500"
+                            className="relative p-2 -m-2 text-gray-400 cursor-pointer hover:text-gray-500"
                             onClick={() => setShowModal(false)}
                           >
                             <span className="absolute -inset-0.5" />
