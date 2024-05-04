@@ -39,7 +39,7 @@ export default function page() {
 
   return (
     <>
-      <div id="Barbers" className="py-24 ">
+      <div id="Barbers" className="w-screen py-24">
         <div className="px-6 mx-auto max-w-7xl lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="font-sans text-3xl tracking-tight text-white sm:text-4xl">

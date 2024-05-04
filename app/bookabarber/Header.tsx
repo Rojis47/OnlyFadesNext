@@ -1,6 +1,6 @@
 "use client";
 import { TTab } from "@/app/types";
-import { Select, SelectSection, SelectItem } from "@nextui-org/react";
+import { Select, SelectItem } from "@nextui-org/react";
 
 type HeaderProps = {
   tabs: TTab[];
@@ -31,9 +31,9 @@ export default function Header({ tabs, setTabs }: HeaderProps) {
         <div className="flex mt-3 md:absolute md:right-0 md:top-3 md:mt-0">
           <button
             type="button"
-            className="inline-flex items-center px-3 py-2 text-sm font-semibold text-gray-900 bg-white rounded-md shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+            className="w-full px-3 py-2 text-sm font-semibold text-center text-gray-900 bg-white rounded-md shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
           >
-            View Location Details
+            View Locations
           </button>
         </div>
       </div>
@@ -63,12 +63,12 @@ export default function Header({ tabs, setTabs }: HeaderProps) {
             name="current-tab"
             label="Active Location"
             placeholder="Select a Location"
-            className="max-w-xs text-black"
+            className="w-full text-black"
             onChange={(e) => handleTabClick(e.target.value)}
             value={tabs.find((tab) => tab.current)?.id}
           >
             {tabs.map((tab) => (
-              <SelectItem key={tab.id} className="text-black" value={tab.id}>
+              <SelectItem key={tab.id} className="text-black " value={tab.id}>
                 {tab.name}
               </SelectItem>
             ))}

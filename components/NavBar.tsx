@@ -6,16 +6,17 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
 
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Our Barbers", href: "/bookabarber" },
-  { name: "Contact Us", href: "#Contact" },
-  { name: "Faq", href: "#faq" },
-];
-
 function NavBar() {
+  const navigation = [
+    { name: "Home", href: "/" },
+    { name: "Our Barbers", href: "/bookabarber" },
+    { name: "Locations", href: "/locations" },
+    { name: "Contact Us", href: "#Contact" },
+    { name: "Faq", href: "#faq" },
+  ];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  console.log(pathname);
 
   return (
     <header className="absolute inset-x-0 z-20 pointer-events-auto top-5">
@@ -36,8 +37,8 @@ function NavBar() {
         <div className="hidden mt-2 font-sans lg:flex lg:gap-x-12">
           {navigation.map((item, i) => (
             <Link
-              className={`link font-sans leading-6 text-white duration-300 ease-in-out text-xlg hover:text-blue-500 ${
-                pathname === `${item.href}` ? "text-blue-500" : ""
+              className={`link font-sans leading-6 duration-300 ease-in-out text-xlg hover:text-blue-500 ${
+                pathname === `${item.href}` ? "text-blue-500" : "text-white"
               }`}
               key={i}
               href={item.href}

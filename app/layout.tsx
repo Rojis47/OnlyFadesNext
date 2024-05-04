@@ -30,7 +30,6 @@ export default function RootLayout({
             <div className="flex items-center justify-between w-full p-3 text-sm">
               <NavBar />
               {/* <AuthButton /> */}
-              {/* <SquireWidget /> */}
               <Toaster />
               {/* <SquireWidget /> */}
             </div>
