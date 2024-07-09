@@ -22,11 +22,11 @@ const ShuffleCards = ({
 }: ShuffleCardsProps) => {
   return (
     <>
-      <div className="grid max-w-2xl grid-cols-1 mx-auto mt-20 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid max-w-xl grid-cols-1 mx-auto mt-20 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2">
         {barbers.map((barber, index) => (
           <div
             key={barber.name}
-            className=" h-[380px] w-[280px] sm:h-[450px] sm:w-[350px] grid  mx-auto  place-content-center space-y-6 rounded-2xl border-2 border-slate-700 bg-slate-800/20 p-6 shadow-xl backdrop-blur-md"
+            className=" h-[380px] w-[280px] sm:h-[450px] sm:w-[350px] grid mx-auto place-content-center space-y-6 rounded-2xl border-2 border-slate-700 bg-slate-800/20 p-6 shadow-xl backdrop-blur-md"
           >
             <Image
               onClick={() => {
