@@ -22,6 +22,7 @@ const initialTabs: TTab[] = [
 export default function page() {
   const [tabs, setTabs] = useState<TTab[]>(initialTabs);
   const [activeBarbers, setActiveBarbers] = useState<TBarber[]>(barbers);
+  const [mapLocation, setMapLocation] = useState<string>("all");
 
   useEffect(() => {
     const activeTab = tabs.find((tab) => tab.current);
@@ -53,14 +54,17 @@ export default function page() {
           </div>
           <Header tabs={tabs} setTabs={setTabs} />
           <div className="gap-10 py-24 xl:flex">
-            <div className="relative inset-0 px-6 py-24 overflow-hidden -z-10 isolate sm:py-32 lg:overflow-visible lg:px-0">
-              <iframe
-                className="sticky z-20 rounded-md top-10"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6874.604914544434!2d-97.66778592381256!3d30.512485496242675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644d170ee2682eb%3A0x4c43b9b20a3d1495!2sOnly%20Fades!5e0!3m2!1sen!2sus!4v1720489753463!5m2!1sen!2sus"
-                width="600"
-                height="450"
-                loading="lazy"
-              ></iframe>
+            <div className="relative inset-0 w-full xl:w-[70%] px-6 py-24 overflow-hidden isolate sm:py-32 lg:overflow-visible lg:px-0">
+              <div className="sticky top-10 ">
+                <h3>
+                  <span className="text-3xl text-white">Our Location</span>
+                </h3>
+                <iframe
+                  className="z-20 w-full rounded-md top-10 h-[50vh]"
+                  src="https://storage.googleapis.com/maps-solutions-gulqoyxm20/locator-plus/4ph2/locator-plus.html"
+                  loading="lazy"
+                ></iframe>
+              </div>
             </div>
             <BarberCards barbersToDisplay={activeBarbers} />
           </div>
