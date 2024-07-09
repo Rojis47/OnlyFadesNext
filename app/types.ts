@@ -69,5 +69,6 @@ export type TBarber = z.infer<typeof BarberSchema>;
 export type TTab = {
   name: string;
   id: string;
+  iFrameUrl: string;
   current: boolean;
 };

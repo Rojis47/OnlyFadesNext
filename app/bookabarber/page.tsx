@@ -10,11 +10,25 @@ import barbers from "@/components/picImports";
 // view location details then let them chose location based on well location => set sate based on location the pick
 
 const initialTabs: TTab[] = [
-  { name: "All", id: "ALL", current: true },
-  { name: "North Round Rock", id: "only-fades-round-rock", current: false },
+  {
+    name: "All",
+    id: "ALL",
+    iFrameUrl:
+      "https://storage.googleapis.com/maps-solutions-gulqoyxm20/locator-plus/4ph2/locator-plus.html",
+    current: true,
+  },
+  {
+    name: "North Round Rock",
+    id: "only-fades-round-rock",
+    iFrameUrl:
+      "https://storage.googleapis.com/maps-solutions-gulqoyxm20/commutes/x3ui/commutes.html",
+    current: false,
+  },
   {
     name: "DownTown Round Rock",
     id: "onlyfades-downtown-use-round-rock",
+    iFrameUrl:
+      "https://storage.googleapis.com/maps-solutions-gulqoyxm20/commutes/cy01/commutes.html",
     current: false,
   },
 ];
@@ -22,7 +36,6 @@ const initialTabs: TTab[] = [
 export default function page() {
   const [tabs, setTabs] = useState<TTab[]>(initialTabs);
   const [activeBarbers, setActiveBarbers] = useState<TBarber[]>(barbers);
-  const [mapLocation, setMapLocation] = useState<string>("all");
 
   useEffect(() => {
     const activeTab = tabs.find((tab) => tab.current);
@@ -56,12 +69,12 @@ export default function page() {
           <div className="gap-10 py-24 xl:flex">
             <div className="relative inset-0 w-full xl:w-[70%] px-6 py-24 overflow-hidden isolate sm:py-32 lg:overflow-visible lg:px-0">
               <div className="sticky top-10 ">
-                <h3>
-                  <span className="text-3xl text-white">Our Location</span>
+                <h3 className="m-auto my-3 font-sans text-3xl text-center text-white">
+                  Our Locations : <br /> {tabs.find((tab) => tab.current)?.name}
                 </h3>
                 <iframe
-                  className="z-20 w-full rounded-md top-10 h-[50vh]"
-                  src="https://storage.googleapis.com/maps-solutions-gulqoyxm20/locator-plus/4ph2/locator-plus.html"
+                  className="z-20 w-full rounded-md top-10 h-[70vh] md:h-[50vh]"
+                  src={tabs.find((tab) => tab.current)?.iFrameUrl}
                   loading="lazy"
                 ></iframe>
               </div>
