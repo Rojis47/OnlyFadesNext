@@ -66,8 +66,8 @@ export default function page() {
             </p>
           </div>
           <Header tabs={tabs} setTabs={setTabs} />
-          <div className="gap-10 py-24 xl:flex">
-            <div className="relative inset-0 w-full xl:w-[70%] px-6 py-24 overflow-hidden isolate sm:py-32 lg:overflow-visible lg:px-0">
+          <div className="gap-10 xl:flex">
+            <div className="relative inset-0 w-full xl:w-[70%] px-6 overflow-hidden isolate sm:py-24 lg:overflow-visible lg:px-0">
               <div className="sticky top-10 ">
                 <h3 className="m-auto my-3 font-sans text-3xl text-center text-white">
                   Our Locations : <br /> {tabs.find((tab) => tab.current)?.name}
